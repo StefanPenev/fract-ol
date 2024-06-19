@@ -8,8 +8,8 @@
 # include "../minilibx_opengl_20191021/mlx.h"
 # include "../minilibx-linux/mlx.h"
 
-# define WIDTH 1280
-# define HEIGHT 760
+# define WIDTH 800
+# define HEIGHT 600
 
 typedef struct s_complex
 {
@@ -34,5 +34,13 @@ typedef struct s_data
     int (*fractal_func)(struct s_data *data, t_complex c);
 }              t_data;
 
+void draw_fractal(t_data *data);
+int mandelbrot(t_data *data, t_complex c);
+int julia(t_data *data, t_complex c);
+int handle_key(int key, t_data *data);
+int handle_mouse(int button, int x, int y, t_data *data);
+int close_window(t_data *data);
+void put_pixel(t_data *data, int x, int y, int color);
+int get_color(int iter, int max_iter);
 
 #endif
