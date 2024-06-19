@@ -8,9 +8,11 @@
 # include "../minilibx_opengl_20191021/mlx.h"
 # include "../minilibx-linux/mlx.h"
 # include "keycodes.h"
+#include <pthread.h>
 
 # define WIDTH 800
 # define HEIGHT 600
+# define NUM_THREADS 8
 
 typedef struct s_complex
 {
@@ -39,6 +41,13 @@ typedef struct s_data
     double zoom_factor; // Add this line to track the zoom level
 } t_data;
 
+typedef struct s_thread_data
+{
+    t_data *data;
+    int start_y;
+    int end_y;
+} t_thread_data;
+
 void draw_fractal(t_data *data);
 int mandelbrot(t_data *data, t_complex c);
 int julia(t_data *data, t_complex c);
@@ -46,8 +55,8 @@ int handle_key(int key, t_data *data);
 int handle_mouse(int button, int x, int y, t_data *data);
 int close_window(t_data *data);
 void put_pixel(t_data *data, int x, int y, int color);
-//int get_color(int iter, int max_iter, int color_offset, int color_mode);
-int get_color(int iter, int max_iter);
+int get_color(int iter, int max_iter, int color_offset, int color_mode);
+//int get_color(int iter, int max_iter);
 int parse_args(int argc, char **argv, t_data *data);
 int burning_ship(t_data *data, t_complex c);
 int ft_strcmp(char *s1, char *s2);

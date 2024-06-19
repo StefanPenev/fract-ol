@@ -70,8 +70,8 @@ int parse_args(int argc, char **argv, t_data *data)
         data->fractal_func = julia;
         if (argc == 4)
         {
-            data->julia_c.re = ft_atof(argv[2]);
-            data->julia_c.im = ft_atof(argv[3]);
+            data->julia_c.re = atof(argv[2]);
+            data->julia_c.im = atof(argv[3]);
         }
     }
     else if (ft_strcmp(argv[1], "ship") == 0)
@@ -83,9 +83,9 @@ int main(int argc, char **argv)
 {
    t_data data;
 
+    set_defaults(&data, argv[1]);
     if (parse_args(argc, argv, &data) != 0)
         return 1;
-    set_defaults(&data, argv[1]);
     init_mlx(&data);
     draw_fractal(&data);
     mlx_key_hook(data.win, handle_key, &data);
