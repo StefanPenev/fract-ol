@@ -4,9 +4,10 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <math.h>
-# include "libft.h"
+# include "../Libft/libft.h"
 # include "../minilibx_opengl_20191021/mlx.h"
 # include "../minilibx-linux/mlx.h"
+# include "keycodes.h"
 
 # define WIDTH 800
 # define HEIGHT 600
@@ -26,13 +27,17 @@ typedef struct s_data
     int bits_per_pixel;
     int line_length;
     int endian;
-    int max_iter;
     t_complex min;
     t_complex max;
     t_complex factor;
     t_complex julia_c;
+    int max_iter;
+    double escape_radius;
     int (*fractal_func)(struct s_data *data, t_complex c);
-}              t_data;
+    int color_offset; // Existing line
+    int color_mode;   // Existing line for color mode
+    double zoom_factor; // Add this line to track the zoom level
+} t_data;
 
 void draw_fractal(t_data *data);
 int mandelbrot(t_data *data, t_complex c);
@@ -41,6 +46,12 @@ int handle_key(int key, t_data *data);
 int handle_mouse(int button, int x, int y, t_data *data);
 int close_window(t_data *data);
 void put_pixel(t_data *data, int x, int y, int color);
+//int get_color(int iter, int max_iter, int color_offset, int color_mode);
 int get_color(int iter, int max_iter);
+int parse_args(int argc, char **argv, t_data *data);
+int burning_ship(t_data *data, t_complex c);
+int ft_strcmp(char *s1, char *s2);
+void usage_exemple();
+double	ft_atof(const char *str);
 
 #endif
