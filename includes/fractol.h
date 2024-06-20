@@ -6,7 +6,7 @@
 /*   By: spenev <spenev@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 11:28:50 by spenev            #+#    #+#             */
-/*   Updated: 2024/06/20 11:33:49 by spenev           ###   ########.fr       */
+/*   Updated: 2024/06/20 12:54:33 by spenev           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define FRACTOL_H
 
 # include <stdlib.h>
+# include <stdio.h>
 # include <unistd.h>
 # include <math.h>
 # include "../Libft/libft.h"
