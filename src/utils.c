@@ -9,7 +9,7 @@ int ft_strcmp(char *s1, char *s2)
 	return (s1[i]-s2[i]);
 }
 
-void usage_exemple()
+void usage_exemple(void)
 {
     ft_putstr_fd("\nUsage: ./fractol \"fractal_type\"\n", 1);
     ft_putstr_fd("Available fractals: \"Mandelbrot\": ./fractol mandelbrot\n", 1);
