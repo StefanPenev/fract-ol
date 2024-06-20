@@ -1,7 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: spenev <spenev@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/13 11:29:44 by spenev            #+#    #+#             */
+/*   Updated: 2023/12/04 10:29:13 by spenev           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 /* 
 	DESCRIPTION: 
-				The atoi() function converts the initial portion of the string pointed 
-				to by str to int representation.
+				The atoi() function converts the initial portion of the string 
+				pointed to by str to int representation.
 */
 
 int	ft_atoi(const char *str)
@@ -19,7 +31,7 @@ int	ft_atoi(const char *str)
 	{
 		if (str[i] == 45)
 			sign = -1;
-		i++;;
+		i++;
 	}
 	while (str[i] != '\0' && str[i] >= '0' && str[i] <= '9')
 	{

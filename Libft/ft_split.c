@@ -1,4 +1,27 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: spenev <spenev@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/14 09:45:31 by spenev            #+#    #+#             */
+/*   Updated: 2023/12/04 10:33:20 by spenev           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
+
+/* 
+	DESCRIPTION:
+				Allocates (with malloc(3)) and returns an array of strings 
+				obtained by splitting ’s’ using the character ’c’ as a 
+				delimiter. The array must end with a NULL pointer.
+
+	RETURN VALUES:
+				The array of new strings resulting from the split. NULL if the 
+				allocation fails.
+ */
 
 static size_t	count_words(char const *s, char c)
 {

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: spenev <spenev@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/13 11:35:15 by spenev            #+#    #+#             */
+/*   Updated: 2023/11/13 12:00:49 by spenev           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 /* 
@@ -12,15 +24,15 @@
 				or NULL if the character does not appear in the string.
  */
 
-char    *ft_strdup(const char *s1)
+char	*ft_strdup(const char *s1)
 {
-    char    *dup;
-    size_t  len;
+	char	*dup;
+	size_t	len;
 
-    len = ft_strlen(s1) + 1;
-    dup = (char *)malloc(sizeof(char) * len);
-    if (dup == 0)
-        return (0);
-    ft_memcpy(dup, s1, len);
-    return (dup);
+	len = ft_strlen(s1) + 1;
+	dup = (char *)malloc(sizeof(char) * len);
+	if (dup == 0)
+		return (0);
+	ft_memcpy(dup, s1, len);
+	return (dup);
 }

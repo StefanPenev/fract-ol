@@ -1,18 +1,26 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: spenev <spenev@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/13 11:35:30 by spenev            #+#    #+#             */
+/*   Updated: 2023/12/04 10:35:01 by spenev           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 /* 
 	DESCRIPTION:
-				The strrchr() function is identical to strchr(), except it locates the last 
-				occurrence of c.
-
-				The strchr() function locates the first occurrence of c (converted to a char) 
-				in the string pointed to by s.The terminating null character is considered to 
-				be part of the string; therefore if c is ‘\0’, the functions locate the 
-				terminating ‘\0’.
+				The strrchr() function is identical to strchr(), except it
+				locates the last occurrence of c.
 
 	RETURN VALUES:
-				The function strrchr() return a pointer to the located character, 
-				or NULL if the character does not appear in the string.
+				The function strrchr() return a pointer to the located 
+				character, or NULL if the character does not appear in the 
+				string.
  */
 
 char	*ft_strrchr(const char *s, int c)

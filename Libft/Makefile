@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: spenev <spenev@student.42.fr>              +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/11/13 11:24:47 by spenev            #+#    #+#              #
+#    Updated: 2023/12/04 10:43:40 by spenev           ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME = libft.a
 
 CC = gcc
@@ -20,11 +32,13 @@ BOBJ = $(BSRC:.c=.o)
 
 HD = libft.h
 
+.c.o:
+	$(CC) $(FLAGS) -c $< -o ${<:.c=.o}
+
 all: $(NAME)
 
-$(NAME):
-	$(CC) $(FLAGS) -c $(SRC) $(BSRC)
-	ar rc $(NAME) $(OBJ) $(BOBJ)
+$(NAME): $(OBJ)
+	ar rc $(NAME) $(OBJ) 
 	ranlib $(NAME)
 	
 clean:
@@ -33,8 +47,9 @@ clean:
 fclean: clean
 	rm -f $(NAME)
 
-# bonus: 
-# 	$(OBJ) $(BOBJ)
-# 	ar rcs $(NAME) $(OBJ) $(BOBJ)
+bonus: $(BOBJ)
+	ar -crs $(NAME) $(BOBJ)
 
 re: fclean all
+
+.PHONY: all bonus clean fclean re 
