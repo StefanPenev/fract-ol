@@ -1,5 +1,4 @@
-#include "fractol.h"
-#include "../Libft/libft.h"
+#include "../includes/fractol.h"
 
 void init_mlx(t_data *data)
 {
@@ -11,33 +10,32 @@ void init_mlx(t_data *data)
 
 void set_defaults(t_data *data, char *fractal_type)
 {
-    double center_re;
-    double center_im;
-    double zoom_factor;
-
     data->max_iter = 200;
-    center_re = 0;
-    center_im = 0;
-    zoom_factor = 0;
-    if (ft_strcmp(fractal_type, "mandelbrot") == 0)
-    {
-        center_re = -0.5;
-        center_im = 0.0;
-        zoom_factor = 1.5;
-    }
-    else if (ft_strcmp(fractal_type, "julia") == 0)
-    {
-        center_re = 0.0;
-        center_im = 0.0;
-        zoom_factor = 1.2; 
 
-        data->julia_c = (t_complex){-0.7, 0.27015};
-    }
-    else if (ft_strcmp(fractal_type, "ship") == 0)
+    double center_re = 0.0;
+    double center_im = 0.0;
+    double zoom_factor = 0.0;
+
+    if (center_re == 0.0 && center_im == 0.0 && zoom_factor == 0.0)
     {
-        center_re = -0.2;
-        center_im = -0.5;
-        zoom_factor = 1.2;
+        if (ft_strcmp(fractal_type, "mandelbrot") == 0)
+        {
+            center_re = -0.5;
+            center_im = 0.0;
+            zoom_factor = 1.5;
+        }
+        else if (ft_strcmp(fractal_type, "julia") == 0)
+        {
+            center_re = 0.0;
+            center_im = 0.0;
+            zoom_factor = 1.2; 
+        }
+        else if (ft_strcmp(fractal_type, "ship") == 0)
+        {
+            center_re = -0.2;
+            center_im = -0.5;
+            zoom_factor = 1.2;
+        }
     }
 
     double width_re = 4.0 / zoom_factor; 
@@ -64,18 +62,25 @@ int parse_args(int argc, char **argv, t_data *data)
     if (ft_strcmp(argv[1], "mandelbrot") == 0)
     {
         data->fractal_func = mandelbrot;
+        data->fractal_type = "mandelbrot";
     }
     else if (ft_strcmp(argv[1], "julia") == 0)
     {
         data->fractal_func = julia;
+        data->fractal_type = "julia";
         if (argc == 4)
         {
             data->julia_c.re = atof(argv[2]);
             data->julia_c.im = atof(argv[3]);
         }
+        else
+            data->julia_c = (t_complex){-0.7, 0.27015};
     }
     else if (ft_strcmp(argv[1], "ship") == 0)
+    {
         data->fractal_func = burning_ship;
+        data->fractal_type = "ship";
+    }
     return (0);
 }
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   events.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spenev <spenev@student.42.fr>              +#+  +:+       +#+        */
+/*   By: stefan <stefan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 11:50:10 by spenev            #+#    #+#             */
-/*   Updated: 2024/06/20 12:35:45 by spenev           ###   ########.fr       */
+/*   Updated: 2024/06/22 22:12:53 by stefan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,44 +15,6 @@
 #define ZOOM_IN_FACTOR 1.2
 #define ZOOM_OUT_FACTOR 0.8
 #define ITERATION_ADJUST_FACTOR 10
-
-// void reset_view(t_data *data)
-// {
-//     data->max_iter = 100;  // Reset to initial iteration count
-//     data->min = (t_complex){-2.0, -2.0};
-//     data->max = (t_complex){2.0, 2.0};
-//     data->factor = (t_complex){(data->max.re - data->min.re) / (WIDTH - 1), 
-//\(data->max.im - data->min.im) / (HEIGHT - 1)};
-//     draw_fractal(data); // Redraw the fractal
-// }
-
-void	reset_view(t_data *data)
-{
-    // data->max_iter = 200;
-
-    // // Initial center coordinates and zoom factor
-    // double center_re = -0.5;
-    // double center_im = 0.0;
-    // double zoom_factor = 1.5;
-
-    // // Calculate the initial range based on the zoom factor
-    // double width_re = 4.0 / zoom_factor; // Initial range in the real axis
-    // double height_im = 4.0 / zoom_factor * HEIGHT / WIDTH; // Maintain the aspect ratio
-
-    // data->min.re = center_re - width_re / 2;
-    // data->max.re = center_re + width_re / 2;
-    // data->min.im = center_im - height_im / 2;
-    // data->max.im = center_im + height_im / 2;
-
-    // // Recalculate the scaling factors
-    // data->factor = (t_complex){
-    //     (data->max.re - data->min.re) / (WIDTH - 1),
-    //     (data->max.im - data->min.im) / (HEIGHT - 1)
-    // };
-    
-    draw_fractal(data); // Redraw the fractal
-}
-
 
 void	adjust_iterations(t_data *data)
 {
@@ -117,7 +79,7 @@ int	handle_key(int keycode, t_data *data)
 	else if (keycode == KEY_M)
 		data->color_mode = (data->color_mode + 1) % 2;
 	else if (keycode == KEY_SPACE)
-		reset_view(data);
+		set_defaults(data, data->fractal_type);
 
 	data->factor.re = (data->max.re - data->min.re) / (WIDTH - 1);
 	data->factor.im = (data->max.im - data->min.im) / (HEIGHT - 1);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spenev <spenev@student.42.fr>              +#+  +:+       +#+        */
+/*   By: stefan <stefan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 11:28:50 by spenev            #+#    #+#             */
-/*   Updated: 2024/06/20 12:54:33 by spenev           ###   ########.fr       */
+/*   Updated: 2024/06/22 22:13:16 by stefan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ typedef struct s_data
 	int			color_offset;
 	int			color_mode;
 	double		zoom_factor;
+	char		*fractal_type;
 }			t_data;
 
 typedef struct s_thread_data
@@ -75,5 +76,6 @@ int		burning_ship(t_data *data, t_complex c);
 int		ft_strcmp(char *s1, char *s2);
 void	usage_exemple(void);
 double	ft_atof(const char *str);
+void set_defaults(t_data *data, char *fractal_type);
 
 #endif
