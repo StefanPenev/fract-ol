@@ -1,4 +1,4 @@
-#include "fractol.h"
+#include "../includes/fractol.h"
 
 int ft_strcmp(char *s1, char *s2)
 {
@@ -7,15 +7,6 @@ int ft_strcmp(char *s1, char *s2)
 	while((s1[i] == s2[i]) && s1[i] && s2[i])
 		i++;
 	return (s1[i]-s2[i]);
-}
-
-void usage_exemple(void)
-{
-    ft_putstr_fd("\nUsage: ./fractol \"fractal_type\"\n", 1);
-    ft_putstr_fd("Available fractals: \"Mandelbrot\": ./fractol mandelbrot\n", 1);
-    ft_putstr_fd("                    \"Julia\": ./fractol julia\n", 1);
-    ft_putstr_fd("                    \"Julia\": ./fractol julia c_re c_im - if c_re or/and c_im are not doubles or wrong arguments, \"julia\" without arguments are rendered.\n", 1);
-    ft_putstr_fd("                    \"Burning ship\": ./fractol ship\n", 1);
 }
 
 double	ft_atof(const char *str)
@@ -39,4 +30,29 @@ double	ft_atof(const char *str)
 		return (res + res2);
 	else
 		return (res + -res2);
+}
+
+void	help_msg(void)
+{
+	ft_putstr_fd("\n", 1);
+	ft_putstr_fd(" ************************** Help ***************************\n", 1);
+	ft_putstr_fd(" *                                                         *\n", 1);
+	ft_putstr_fd(" * Usage: ./fractol [mandelbrot / julia / julia arg1 arg2  *\n", 1);
+	ft_putstr_fd(" *                   / ship]                               *\n", 1);
+	ft_putstr_fd(" *                                                         *\n", 1);
+	ft_putstr_fd(" * e.g: ./fractol mandelbrot                               *\n", 1);
+	ft_putstr_fd(" * e.g: ./fractol julia -0.4 0.6                           *\n", 1);
+	ft_putstr_fd(" *                                                         *\n", 1);
+	ft_putstr_fd(" ************************ KEYBOARD *************************\n", 1);
+	ft_putstr_fd(" *                                                         *\n", 1);
+	ft_putstr_fd(" * Press ESC to close the window.                          *\n", 1);
+	ft_putstr_fd(" * Use mouse scroll to zoom in and out of the fractal.     *\n", 1);
+	ft_putstr_fd(" * Press the arrow keys or W,A,S,D to change the viewpoint.*\n", 1);
+	ft_putstr_fd(" * Press Space to reset the fractal.                       *\n", 1);
+	ft_putstr_fd(" * Press M to swich between gradient and smooth color.     *\n", 1);
+	ft_putstr_fd(" * Press X, C to change color offset                       *\n", 1);
+	ft_putstr_fd(" *                                                         *\n", 1);
+	ft_putstr_fd(" ***********************************************************\n", 1);
+	ft_putstr_fd("\n", 1);
+	exit(EXIT_SUCCESS);
 }

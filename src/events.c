@@ -6,7 +6,7 @@
 /*   By: stefan <stefan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 11:50:10 by spenev            #+#    #+#             */
-/*   Updated: 2024/06/22 22:12:53 by stefan           ###   ########.fr       */
+/*   Updated: 2024/06/23 16:01:01 by stefan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,41 +87,6 @@ int	handle_key(int keycode, t_data *data)
 	draw_fractal(data);
 	return (0);
 }
-
-// int handle_mouse(int button, int x, int y, t_data *data)
-// {
-//     double mouse_re = data->min.re + x * data->factor.re;
-//     double mouse_im = data->min.im + y * data->factor.im;
-
-//     if (button == 5)
-//     {
-//         data->zoom_factor *= ZOOM_IN_FACTOR;
-//         data->min.re = mouse_re + (data->min.re - mouse_re) / ZOOM_IN_FACTOR;
-//         data->min.im = mouse_im + (data->min.im - mouse_im) / ZOOM_IN_FACTOR;
-//         data->max.re = mouse_re + (data->max.re - mouse_re) / ZOOM_IN_FACTOR;
-//         data->max.im = mouse_im + (data->max.im - mouse_im) / ZOOM_IN_FACTOR;
-//     }
-//     else if (button == 4)
-//     {
-//         data->zoom_factor *= ZOOM_OUT_FACTOR;
-//         data->min.re = mouse_re + (data->min.re - mouse_re) / ZOOM_OUT_FACTOR;
-//         data->min.im = mouse_im + (data->min.im - mouse_im) / ZOOM_OUT_FACTOR;
-//         data->max.re = mouse_re + (data->max.re - mouse_re) / ZOOM_OUT_FACTOR;
-//         data->max.im = mouse_im + (data->max.im - mouse_im) / ZOOM_OUT_FACTOR;
-//     }
-
-//     // Recalculate factor after zoom
-//     data->factor.re = (data->max.re - data->min.re) / (WIDTH - 1);
-//     data->factor.im = (data->max.im - data->min.im) / (HEIGHT - 1);
-
-//     // Adjust iterations based on zoom
-//     adjust_iterations(data);
-
-//     // Redraw fractal
-//     draw_fractal(data);
-
-//     return 0;
-// }
 
 int	handle_mouse(int button, int x, int y, t_data *data)
 {

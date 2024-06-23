@@ -6,7 +6,7 @@
 /*   By: stefan <stefan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 11:28:50 by spenev            #+#    #+#             */
-/*   Updated: 2024/06/22 22:13:16 by stefan           ###   ########.fr       */
+/*   Updated: 2024/06/23 15:48:28 by stefan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@
 # include "keycodes.h"
 # include <pthread.h>
 
-# define WIDTH 800
-# define HEIGHT 600
+# define WIDTH 1280
+# define HEIGHT 768
 # define NUM_THREADS 8
 
 typedef struct s_complex
@@ -70,12 +70,11 @@ int		handle_mouse(int button, int x, int y, t_data *data);
 int		close_window(t_data *data);
 void	put_pixel(t_data *data, int x, int y, int color);
 int		get_color(int iter, int max_iter, int color_offset, int color_mode);
-//int get_color(int iter, int max_iter);
 int		parse_args(int argc, char **argv, t_data *data);
 int		burning_ship(t_data *data, t_complex c);
 int		ft_strcmp(char *s1, char *s2);
-void	usage_exemple(void);
+void	help_msg(void);
 double	ft_atof(const char *str);
-void set_defaults(t_data *data, char *fractal_type);
+void 	set_defaults(t_data *data, char *fractal_type);
 
 #endif

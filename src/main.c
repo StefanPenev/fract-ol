@@ -60,7 +60,7 @@ int parse_args(int argc, char **argv, t_data *data)
 {
     if (argc < 2 || (ft_strcmp(argv[1], "mandelbrot") != 0 && ft_strcmp(argv[1], "julia") != 0 && ft_strcmp(argv[1], "ship") != 0))
     {
-        usage_exemple();
+        help_msg();
         return (1);
     }
     if (ft_strcmp(argv[1], "mandelbrot") == 0)
