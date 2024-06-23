@@ -11,6 +11,8 @@ void init_mlx(t_data *data)
 void set_defaults(t_data *data, char *fractal_type)
 {
     data->max_iter = 200;
+    data->min = (t_complex){-2.0, -2.0};
+    data->max = (t_complex){2.0, 2.0};
 
     double center_re = 0.0;
     double center_im = 0.0;
@@ -50,6 +52,8 @@ void set_defaults(t_data *data, char *fractal_type)
         (data->max.re - data->min.re) / (WIDTH - 1),
         (data->max.im - data->min.im) / (HEIGHT - 1)
     };
+    data->color_mode = 0;
+    data->color_offset = 0;
 }
 
 int parse_args(int argc, char **argv, t_data *data)
