@@ -6,7 +6,7 @@
 /*   By: stefan <stefan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/23 18:48:56 by stefan            #+#    #+#             */
-/*   Updated: 2024/06/23 18:52:02 by stefan           ###   ########.fr       */
+/*   Updated: 2024/06/23 19:21:56 by stefan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,11 @@
 
 static	int	validate_args(int argc, char **argv)
 {
-	if (argc < 2 || (ft_strcmp(argv[1], "mandelbrot") != 0
-			&& ft_strcmp(argv[1], "julia") != 0
-			&& ft_strcmp(argv[1], "ship") != 0))
+	if ((argc < 2 || (ft_strcmp(argv[1], "mandelbrot") != 0
+				&& ft_strcmp(argv[1], "julia") != 0
+				&& ft_strcmp(argv[1], "ship") != 0))
+		|| (argc > 2 && (ft_strcmp(argv[1], "mandelbrot") == 0
+				|| ft_strcmp(argv[1], "ship") == 0)))
 	{
 		help_msg();
 		return (1);
