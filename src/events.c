@@ -12,10 +12,6 @@
 
 #include "../includes/fractol.h"
 
-#define ZOOM_IN_FACTOR 1.2
-#define ZOOM_OUT_FACTOR 0.8
-#define ITERATION_ADJUST_FACTOR 10
-
 void	adjust_iterations(t_data *data)
 {
 	int	max_iter;

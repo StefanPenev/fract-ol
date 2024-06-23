@@ -26,6 +26,9 @@
 # define WIDTH 800
 # define HEIGHT 600
 # define NUM_THREADS 8
+# define ZOOM_IN_FACTOR 1.2
+# define ZOOM_OUT_FACTOR 0.8
+# define ITERATION_ADJUST_FACTOR 10
 
 typedef struct s_complex
 {
@@ -75,6 +78,6 @@ int		burning_ship(t_data *data, t_complex c);
 int		ft_strcmp(char *s1, char *s2);
 void	help_msg(void);
 double	ft_atof(const char *str);
-void 	set_defaults(t_data *data, char *fractal_type);
+void	set_defaults(t_data *data, char *fractal_type);
 
 #endif

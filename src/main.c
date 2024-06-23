@@ -1,23 +1,39 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: stefan <stefan@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/06/23 17:36:56 by stefan            #+#    #+#             */
+/*   Updated: 2024/06/23 17:54:19 by stefan           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/fractol.h"
 
-void init_mlx(t_data *data)
+void	init_mlx(t_data *data)
 {
-    data->mlx = mlx_init();
-    data->win = mlx_new_window(data->mlx, WIDTH, HEIGHT, "Fract'ol");
-    data->img = mlx_new_image(data->mlx, WIDTH, HEIGHT);
-    data->addr = mlx_get_data_addr(data->img, &data->bits_per_pixel, &data->line_length, &data->endian);
+	data->mlx = mlx_init();
+	data->win = mlx_new_window(data->mlx, WIDTH, HEIGHT, "Fract'ol");
+	data->img = mlx_new_image(data->mlx, WIDTH, HEIGHT);
+	data->addr = mlx_get_data_addr(data->img, &data->bits_per_pixel,
+								   &data->line_length, &data->endian);
 }
 
-void set_defaults(t_data *data, char *fractal_type)
+void	set_defaults(t_data *data, char *fractal_type)
 {
-    data->max_iter = 200;
-    data->min = (t_complex){-2.0, -2.0};
-    data->max = (t_complex){2.0, 2.0};
+	double	center_re;
+	double	center_im;
+	double	zoom_factor;
 
-    double center_re = 0.0;
-    double center_im = 0.0;
-    double zoom_factor = 0.0;
+	data->max_iter = 200;
+	data->min = (t_complex){-2.0, -2.0};
+	data->max = (t_complex){2.0, 2.0};
 
+	center_re = 0.0;
+	center_im = 0.0;
+	zoom_factor = 0.0;
     if (center_re == 0.0 && center_im == 0.0 && zoom_factor == 0.0)
     {
         if (ft_strcmp(fractal_type, "mandelbrot") == 0)
@@ -56,50 +72,50 @@ void set_defaults(t_data *data, char *fractal_type)
     data->color_offset = 0;
 }
 
-int parse_args(int argc, char **argv, t_data *data)
+int	parse_args(int argc, char **argv, t_data *data)
 {
-    if (argc < 2 || (ft_strcmp(argv[1], "mandelbrot") != 0 && ft_strcmp(argv[1], "julia") != 0 && ft_strcmp(argv[1], "ship") != 0))
-    {
-        help_msg();
-        return (1);
-    }
-    if (ft_strcmp(argv[1], "mandelbrot") == 0)
-    {
-        data->fractal_func = mandelbrot;
-        data->fractal_type = "mandelbrot";
-    }
-    else if (ft_strcmp(argv[1], "julia") == 0)
-    {
-        data->fractal_func = julia;
-        data->fractal_type = "julia";
-        if (argc == 4)
-        {
-            data->julia_c.re = atof(argv[2]);
-            data->julia_c.im = atof(argv[3]);
-        }
-        else
-            data->julia_c = (t_complex){-0.7, 0.27015};
-    }
-    else if (ft_strcmp(argv[1], "ship") == 0)
-    {
-        data->fractal_func = burning_ship;
-        data->fractal_type = "ship";
-    }
-    return (0);
+	if (argc < 2 || (ft_strcmp(argv[1], "mandelbrot") != 0 && ft_strcmp(argv[1], "julia") != 0 && ft_strcmp(argv[1], "ship") != 0))
+	{
+		help_msg();
+		return (1);
+	}
+	if (ft_strcmp(argv[1], "mandelbrot") == 0)
+	{
+		data->fractal_func = mandelbrot;
+		data->fractal_type = "mandelbrot";
+	}
+	else if (ft_strcmp(argv[1], "julia") == 0)
+	{
+		data->fractal_func = julia;
+		data->fractal_type = "julia";
+		if (argc == 4)
+		{
+			data->julia_c.re = atof(argv[2]);
+			data->julia_c.im = atof(argv[3]);
+		}
+		else
+			data->julia_c = (t_complex){-0.7, 0.27015};
+	}
+	else if (ft_strcmp(argv[1], "ship") == 0)
+	{
+		data->fractal_func = burning_ship;
+		data->fractal_type = "ship";
+	}
+	return (0);
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-   t_data data;
+	t_data	data;
 
-    if (parse_args(argc, argv, &data) != 0)
-        return 1;
-    set_defaults(&data, argv[1]);
-    init_mlx(&data);
-    draw_fractal(&data);
-    mlx_key_hook(data.win, handle_key, &data);
-    mlx_mouse_hook(data.win, handle_mouse, &data);
-    mlx_hook(data.win, 17, 0, close_window, &data);
-    mlx_loop(data.mlx);
-    return (0);
+	if (parse_args(argc, argv, &data) != 0)
+		return (1);
+	set_defaults(&data, argv[1]);
+	init_mlx(&data);
+	draw_fractal(&data);
+	mlx_key_hook(data.win, handle_key, &data);
+	mlx_mouse_hook(data.win, handle_mouse, &data);
+	mlx_hook(data.win, 17, 0, close_window, &data);
+	mlx_loop(data.mlx);
+	return (0);
 }
