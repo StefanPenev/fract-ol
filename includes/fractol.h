@@ -6,7 +6,7 @@
 /*   By: stefan <stefan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 11:28:50 by spenev            #+#    #+#             */
-/*   Updated: 2024/06/23 16:27:12 by stefan           ###   ########.fr       */
+/*   Updated: 2024/06/23 22:07:22 by stefan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,13 +68,12 @@ typedef struct s_thread_data
 void	draw_fractal(t_data *data);
 int		mandelbrot(t_data *data, t_complex c);
 int		julia(t_data *data, t_complex c);
+int		burning_ship(t_data *data, t_complex c);
 int		handle_key(int key, t_data *data);
 int		handle_mouse(int button, int x, int y, t_data *data);
 int		close_window(t_data *data);
-void	put_pixel(t_data *data, int x, int y, int color);
 int		get_color(int iter, int max_iter, int color_offset, int color_mode);
 int		parse_args(int argc, char **argv, t_data *data);
-int		burning_ship(t_data *data, t_complex c);
 int		ft_strcmp(char *s1, char *s2);
 void	help_msg(void);
 double	ft_atof(const char *str);

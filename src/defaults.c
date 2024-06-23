@@ -6,7 +6,7 @@
 /*   By: stefan <stefan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/23 18:37:44 by stefan            #+#    #+#             */
-/*   Updated: 2024/06/23 18:54:03 by stefan           ###   ########.fr       */
+/*   Updated: 2024/06/23 20:57:17 by stefan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,12 +55,10 @@ static	void	calculate_parameters(t_data *data, double center_re,
 
 	width_re = 4.0 / zoom_factor;
 	height_im = 4.0 / zoom_factor * HEIGHT / WIDTH;
-
 	data->min.re = center_re - width_re / 2;
 	data->max.re = center_re + width_re / 2;
 	data->min.im = center_im - height_im / 2;
 	data->max.im = center_im + height_im / 2;
-
 	data->factor = (t_complex){
 		(data->max.re - data->min.re) / (WIDTH - 1),
 		(data->max.im - data->min.im) / (HEIGHT - 1)

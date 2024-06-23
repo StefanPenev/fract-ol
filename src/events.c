@@ -6,7 +6,7 @@
 /*   By: stefan <stefan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 11:50:10 by spenev            #+#    #+#             */
-/*   Updated: 2024/06/23 16:01:01 by stefan           ###   ########.fr       */
+/*   Updated: 2024/06/23 20:58:09 by stefan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,10 +76,8 @@ int	handle_key(int keycode, t_data *data)
 		data->color_mode = (data->color_mode + 1) % 2;
 	else if (keycode == KEY_SPACE)
 		set_defaults(data, data->fractal_type);
-
 	data->factor.re = (data->max.re - data->min.re) / (WIDTH - 1);
 	data->factor.im = (data->max.im - data->min.im) / (HEIGHT - 1);
-
 	draw_fractal(data);
 	return (0);
 }
@@ -102,7 +100,6 @@ int	handle_mouse(int button, int x, int y, t_data *data)
 		data->min.im = mouse_im + (data->min.im - mouse_im) * zoom;
 		data->max.re = mouse_re + (data->max.re - mouse_re) * zoom;
 		data->max.im = mouse_im + (data->max.im - mouse_im) * zoom;
-
 		data->factor = (t_complex)
 		{
 			(data->max.re - data->min.re) / (WIDTH - 1),

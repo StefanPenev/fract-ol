@@ -6,7 +6,7 @@
 /*   By: stefan <stefan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/23 18:48:56 by stefan            #+#    #+#             */
-/*   Updated: 2024/06/23 19:21:56 by stefan           ###   ########.fr       */
+/*   Updated: 2024/06/23 20:58:45 by stefan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,6 @@ int	parse_args(int argc, char **argv, t_data *data)
 {
 	if (validate_args(argc, argv) != 0)
 		return (1);
-
 	set_fractal_data(argc, argv, data);
-
 	return (0);
 }
