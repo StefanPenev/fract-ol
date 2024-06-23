@@ -12,6 +12,8 @@ LIBFT = Libft/libft.a
 
 UNAME_S := $(shell uname -s)
 
+COLOR_GREEN = '\033[32m'
+
 ifeq ($(UNAME_S), Darwin)
     LDFLAGS = $(LDFLAGS_MAC)
     MLX_DIR = minilibx_opengl_20191021
@@ -27,6 +29,8 @@ all: $(NAME)
 
 $(NAME): $(OBJS) $(LIBFT) $(MLX)
 	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(LDFLAGS) -o $(NAME)
+	@echo ${COLOR_GREEN}"Fract'ol Compiled!\n\n\
+Example of using: $$> ./fractol mandelbrot, julia, julia arg1 arg2, ship"
 
 $(LIBFT):
 	make -C Libft/

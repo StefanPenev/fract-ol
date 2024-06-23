@@ -6,7 +6,7 @@
 /*   By: stefan <stefan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 11:28:50 by spenev            #+#    #+#             */
-/*   Updated: 2024/06/23 15:48:28 by stefan           ###   ########.fr       */
+/*   Updated: 2024/06/23 16:27:12 by stefan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@
 # include "keycodes.h"
 # include <pthread.h>
 
-# define WIDTH 1280
-# define HEIGHT 768
+# define WIDTH 800
+# define HEIGHT 600
 # define NUM_THREADS 8
 
 typedef struct s_complex

@@ -92,9 +92,9 @@ int main(int argc, char **argv)
 {
    t_data data;
 
-    set_defaults(&data, argv[1]);
     if (parse_args(argc, argv, &data) != 0)
         return 1;
+    set_defaults(&data, argv[1]);
     init_mlx(&data);
     draw_fractal(&data);
     mlx_key_hook(data.win, handle_key, &data);
