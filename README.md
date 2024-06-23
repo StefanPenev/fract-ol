@@ -7,4 +7,4 @@ The term `fractal` was first used by mathematician Benoit Mandelbrot in 1974. He
 
 ## Mandelbrot set
 ![Fract-ol Mandelbrot](screenshots/Mandelbrot.png)
-
+![Fract-ol Mandelbrot](screenshots/Mandelbrot1.png)
