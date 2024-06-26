@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: stefan <stefan@student.42.fr>              +#+  +:+       +#+        */
+/*   By: spenev <spenev@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 11:28:50 by spenev            #+#    #+#             */
-/*   Updated: 2024/06/23 22:07:22 by stefan           ###   ########.fr       */
+/*   Updated: 2024/06/26 12:33:19 by spenev           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,7 @@
 # include <unistd.h>
 # include <math.h>
 # include "../Libft/libft.h"
-# include "../minilibx_opengl_20191021/mlx.h"
-# include "../minilibx-linux/mlx.h"
+# include <mlx.h>
 # include "keycodes.h"
 # include <pthread.h>
 

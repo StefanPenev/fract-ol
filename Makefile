@@ -1,11 +1,13 @@
 NAME = fractol
 
-CC = gcc
-CFLAGS = -Wall -Wextra -Werror -I includes -I minilibx_opengl_20191021
+CC = cc
+CFLAGS = -Wall -Wextra -Werror -I includes 
 LDFLAGS_MAC = -L minilibx_opengl_20191021 -lmlx -framework OpenGL -framework AppKit -lm
 LDFLAGS_LINUX = -L minilibx-linux -lmlx -lX11 -lXext -lm
 
-SRCS = $(wildcard src/*.c)
+SRCS = src/color.c src/defaults.c src/draw.c src/events.c src/fractol.c src/main.c \
+	   src/utils.c src/validations.c 
+
 OBJS = $(SRCS:.c=.o)
 
 LIBFT = Libft/libft.a
@@ -17,10 +19,11 @@ COLOR_GREEN = '\033[32m'
 ifeq ($(UNAME_S), Darwin)
     LDFLAGS = $(LDFLAGS_MAC)
     MLX_DIR = minilibx_opengl_20191021
+	CFLAGS += -I $(MLX_DIR)
 else
     LDFLAGS = $(LDFLAGS_LINUX)
     MLX_DIR = minilibx-linux
-    CFLAGS += -I/usr/include/X11
+    CFLAGS += -I $(MLX_DIR)
 endif
 
 MLX = $(MLX_DIR)/libmlx.a

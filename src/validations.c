@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validations.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: stefan <stefan@student.42.fr>              +#+  +:+       +#+        */
+/*   By: spenev <spenev@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/23 18:48:56 by stefan            #+#    #+#             */
-/*   Updated: 2024/06/23 20:58:45 by stefan           ###   ########.fr       */
+/*   Updated: 2024/06/26 10:46:14 by spenev           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ static	int	validate_args(int argc, char **argv)
 				&& ft_strcmp(argv[1], "julia") != 0
 				&& ft_strcmp(argv[1], "ship") != 0))
 		|| (argc > 2 && (ft_strcmp(argv[1], "mandelbrot") == 0
-				|| ft_strcmp(argv[1], "ship") == 0)))
+				|| ft_strcmp(argv[1], "ship") == 0))
+		|| ((argc > 4 || argc == 3) && (ft_strcmp(argv[1], "julia") == 0)))
 	{
 		help_msg();
 		return (1);
